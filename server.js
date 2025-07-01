@@ -12,8 +12,11 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors({
-  origin: 'https://simoldesproject-hfxr-ldfrrso8i.vercel.app'
+  origin: 'https://simoldesproject-hfxr-ldfrrso8i.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+app.options('*', cors());
 app.use(bodyParser.json());
 
 // Rotas da API
